@@ -1,0 +1,183 @@
+.login-page {
+    .green-check-circle {
+        width: 10px;
+        height: 10px;
+        object-fit: contain;
+    }
+
+    .error-con {
+        .error-desc {
+            margin: 0px 0px 10px 0px;
+            text-align: start;
+            padding-left: 8px !important;
+            font-family: Roboto !important;
+            font-size: 12px !important;
+            font-weight: normal;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: normal;
+            letter-spacing: normal;
+            color: #142450;
+        }
+    }
+
+    .mat-tab-body {
+        height: 62vh;
+        width: 90vh;
+        overflow-y: auto;
+    }
+
+    .mat-form-field {
+        width: 100%;
+    }
+
+    .header-text {
+        h5 {
+            font-style: normal;
+            font-weight: normal;
+            font-size: 18px;
+            line-height: 185.5%;
+            text-align: center;
+            color: #000000;
+            opacity: 0.5;
+            margin: 0;
+        }
+    }
+
+    .log-btn {
+        height: 47px;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 22px;
+    }
+
+    .t-c {
+        justify-content: center;
+        padding-top: 20px;
+    }
+
+    .t-s {
+        text-align: start;
+    }
+
+    .terms-and-condtion {
+        h5 {
+            text-align: center;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 16px;
+            line-height: 185.5%;
+            margin: 0;
+        }
+    }
+
+    .anchor {
+        cursor: pointer;
+        color: #4e7fff;
+        text-decoration: underline;
+    }
+
+    .mat-tab-label {
+        height: 70px !important;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 34px;
+        color: #000000;
+        opacity: 1;
+    }
+
+    .dont-accont-desc {
+        font-style: normal;
+        font-weight: normal;
+        font-size: 16px;
+        line-height: 185.5%;
+        text-align: center;
+    }
+
+    .mat-form-field {
+        .mat-form-field-outline {
+            background: white;
+            border-radius: 4px;
+        }
+    }
+
+    .mat-form-field:hover,
+    .mat-form-field:active,
+    .mat-form-field:focus {
+        .mat-form-field-outline {
+            background: white;
+            border-radius: 4px;
+        }
+    }
+
+    .mat-icon-button {
+        height: 0 !important;
+        width: 12px !important;
+    }
+
+    .mat-icon {
+        font-size: 18px !important;
+    }
+
+    .mat-form-field-appearance-outline .mat-form-field-wrapper {
+        margin: 0 !important;
+    }
+
+    .mat-form-field-appearance-outline .mat-form-field-infix {
+        padding: 0 !important;
+    }
+
+    .mat-form-field-infix {
+        border-top: 0 !important;
+    }
+
+    .mat-form-field-appearance-outline .mat-form-field-flex {
+        padding: 18px 16px 16px !important;
+    }
+}
+
+@media screen and (max-width: 601px) {
+    .cdk-overlay-pane {
+        max-width: 100% !important;
+        width: 100% !important;
+        height: 100% !important;
+    }
+
+    .login-page {
+        .mat-tab-label {
+            height: 55px !important;
+            font-size: 14px !important;
+        }
+    }
+}
+
+.mat-checkbox-indeterminate.mat-accent .mat-checkbox-background,
+.mat-checkbox-checked.mat-accent .mat-checkbox-background {
+    background-color: #1c00b9;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.forgot-password-desc {
+    margin: 0px;
+    cursor: pointer;
+    font-weight: normal;
+    font-size: 14px;
+    padding-top: 20px;
+}
+
+.forgot-password-header {
+    font-weight: 500;
+    margin: 0px;
+}
+
+.forgot-password-sub-header {
+    font-weight: normal;
+    font-size: 14px;
+    margin: 0px;
+    margin-top: 10px;
+}

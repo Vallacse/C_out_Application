@@ -1,0 +1,287 @@
+<div class="login-page">
+    <mat-tab-group mat-stretch-tabs [(selectedIndex)]="selectedTabIndex" animationDuration="0ms">
+        <mat-tab label="SIGN IN">
+            <div>
+                <div *ngIf="!openCustomLogin">
+                    <div class="header-text m-t-30">
+                        <h5>
+                            You're ready to Login into C-Out Account
+                            <asl-google-signin-button type="icon" size="large"></asl-google-signin-button>
+                        </h5>
+                    </div>
+                    <div class="m-t-5 t-c">
+                        <button mat-raised-button class="m-t-10 t-s log-btn" color="primary" fxFlex="80" fxFlex.xs="90"
+                            (click)="signInWithGoogle()"><img src="/assets/images/social-media/google.svg" width="20"
+                                class="m-r-10">
+                            Continue With
+                            Google
+                        </button>
+                    </div>
+                    <div class="m-t-5 t-c">
+                        <button mat-raised-button class="m-t-10 t-s log-btn" color="warn" fxFlex="80" fxFlex.xs="90"
+                            (click)="signInWithFacebook()">
+                            <img src="/assets/images/social-media/facebook.svg" width="20" class="m-r-10"> Continue With
+                            Facebook
+                        </button>
+                    </div>
+                    <div class="m-t-5 t-c">
+                        <button mat-raised-button class="m-t-10 t-s log-btn " fxFlex="80" fxFlex.xs="90"
+                            (click)="open()" style="background: #4E7FFF;color: white;">
+                            <img src="/assets/images/social-media/email.svg" width="20" class="m-r-10"> Continue With
+                            Email
+                        </button>
+                    </div>
+                    <div class="m-t-30 t-c" fxLayout="row" fxLayoutGap="20px">
+                        <button mat-raised-button class="m-t-20  log-btn" fxFlex="30" (click)="close()"
+                            style="background: #4E7FFF 20%;color: white;height: 47px;">
+                            Skip
+                        </button>
+                        <button mat-raised-button class="m-t-20  log-btn" fxFlex="30" (click)="signOut()"
+                            style="background: #4E7FFF 20%;color: white;height: 47px;">
+                            Logout
+                        </button>
+                    </div>
+                </div>
+                <div *ngIf="openCustomLogin" fxLayout="row" fxLayoutAlign="center">
+                    <form [formGroup]="signinForm" class="w-100 t-c" ngClass.xs="m-0">
+                        <div class="t-c m-t-20">
+                            <mat-form-field appearance="outline" fxFlex="80" fxFlex.xs="90">
+                                <input matInput type="email" formControlName="email" placeholder="E - mail" required>
+                                <mat-error style="font-size: small;"
+                                    *ngIf="signinForm.get('email')?.hasError('pattern')">Provide valid email
+                                </mat-error>
+                            </mat-form-field>
+                        </div>
+                        <div class="t-c">
+                            <mat-form-field appearance="outline" fxFlex="80" fxFlex.xs="90">
+                                <input matInput placeholder="Password" formControlName="password"
+                                    [type]="hide ? 'password' : 'text'" required>
+                                <mat-error style="font-size: small;"
+                                    *ngIf="signinForm.get('password')?.hasError('minlength')">Provide valid password
+                                </mat-error>
+                                <button mat-icon-button matSuffix (click)="hide = !hide"
+                                    [attr.aria-label]="'Hide Password'" [attr.aria-pressed]="hide">
+                                    <mat-icon>{{hide ? 'visibility_off':'visibility'}}</mat-icon>
+                                </button>
+                            </mat-form-field>
+                        </div>
+                        <div>
+                            <button mat-button color="primary" ngStyle.gt-xs="margin-left:63px;"
+                                ngStyle.xs="margin-left:24px;" (click)="openForgotPassword()">
+                                <h5 class="forgot-password-desc">Forgot Password</h5>
+                            </button>
+                        </div>
+                        <div>
+                            <div class="t-c" ngClass.xs="m-0">
+                                <button mat-raised-button class="m-t-10 log-btn " fxFlex="80" fxFlex.xs="90"
+                                    color="primary" (click)="logIn()">
+                                    SIGN IN
+                                </button>
+                            </div>
+                        </div>
+                        <div class="m-t-20 t-c">
+                            <button mat-raised-button fxFlex="80" class="log-btn" fxFlex.xs="90"
+                                style="background: #4E7FFF 20%;color: white;" (click)="openSignIn()">
+                                Continue With Social Login
+                            </button>
+                        </div>
+                        <div class="m-t-30 ">
+                            <h5 class="dont-accont-desc">If you do not have an account, <button mat-button>
+                                    <span class="anchor" (click)="openSignUp()"> Sign Up</span>
+                                </button></h5>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </mat-tab>
+        <mat-tab label="SIGN UP">
+            <div>
+                <div *ngIf="!openCustomSignUp">
+                    <div class="header-text m-t-20">
+                        <h5>
+                            Create an C-Out Account
+                        </h5>
+                    </div>
+                    <div class="m-t-5 t-c">
+                        <button mat-raised-button class="m-t-10 t-s log-btn" color="primary" fxFlex="80" fxFlex.xs="90">
+                            <img src="/assets/images/social-media/google.svg" width="20" class="m-r-10"
+                                (click)="signInWithGoogle()"> Continue With
+                            Google
+                        </button>
+                    </div>
+                    <div class="m-t-5 t-c">
+                        <button mat-raised-button class="m-t-10 t-s log-btn" color="warn" fxFlex="80" fxFlex.xs="90"
+                            (click)=" signInWithFacebook()">
+                            <img src="/assets/images/social-media/facebook.svg" width="20" class="m-r-10"> Continue With
+                            Facebook
+                        </button>
+                    </div>
+                    <div class="m-t-5 t-c">
+                        <button mat-raised-button class="m-t-10 t-s log-btn " fxFlex="80" fxFlex.xs="90"
+                            style="background: #4E7FFF;color: white;" (click)="openCustomEmailSignUp()">
+                            <img src="/assets/images/social-media/email.svg" width="20" class="m-r-10"> Continue With
+                            Email
+                        </button>
+                    </div>
+                    <div class="m-t-20 t-c">
+                        <button mat-raised-button class="m-t-20  log-btn" fxFlex="30" (click)="close()"
+                            style="background: #4E7FFF 20%;color: white;height: 47px;">
+                            Skip
+                        </button>
+                    </div>
+                    <div class="t-c m-t-20">
+                        <form [formGroup]="signupForm" fxLayout="row" fxLayoutAlign="center">
+                            <mat-checkbox class="text-wrap" fxFlex="80" fxFlex.xs="90"
+                                formControlName="sendNewsletterFl"
+                                [ngClass]="{'invalid':!signupForm.get('termsAndConditions')?.value && isSubmittedSignUp}">
+                                I’d like to receive your newsletter with my success checklist
+                            </mat-checkbox>
+                        </form>
+                    </div>
+                    <div class="t-c m-t-20">
+                        <form [formGroup]="signupForm" fxLayout="row" fxLayoutAlign="center">
+                            <mat-checkbox class="text-wrap" fxFlex="80" fxFlex.xs="90"
+                                formControlName="sendMarkettingEmailFl"
+                                [ngClass]="{'invalid':!signupForm.get('termsAndConditions')?.value && isSubmittedSignUp}">
+                                I’d like to receive special offers, promo code and other occasional emails
+                            </mat-checkbox>
+                        </form>
+                    </div>
+                    <div class="m-b-40 t-c terms-and-condtion m-t-40">
+                        <h5 class="m-0 ">
+                            by using C-Out Technology, you agree to our
+                        </h5>
+                        <h5 class="m-0">
+                            <a class="anchor" (click)="openTermAndConditions()">Terms and Conditions</a>
+                        </h5>
+                    </div>
+                </div>
+                <div *ngIf="openCustomSignUp">
+                    <form [formGroup]="signupForm" class="w-100 t-c">
+                        <div class="t-c">
+                            <mat-form-field appearance="outline" fxFlex="80" fxFlex.xs="90">
+                                <input formControlName="name" matInput type="text" placeholder="Name" name="name">
+                                <mat-error style="font-size: small;" *ngIf="signupForm.get('name')?.hasError('name')">
+                                    Provide Your Name
+                                </mat-error>
+                            </mat-form-field>
+                        </div>
+                        <div class="t-c m-t-5">
+                            <mat-form-field appearance="outline" fxFlex="80" fxFlex.xs="90">
+                                <input formControlName="email" matInput type="email" placeholder="E - mail"
+                                    name="email">
+                                <mat-error style="font-size: small;"
+                                    *ngIf="signupForm.get('email')?.hasError('pattern')">Provide valid email
+                                </mat-error>
+                            </mat-form-field>
+                        </div>
+                        <div class="t-c m-t-5">
+                            <mat-form-field appearance="outline" fxFlex="80" fxFlex.xs="90">
+                                <input formControlName="phone" matInput type="tel" placeholder="Phone Number"
+                                    [numbersOnly]="true" minlength="10" maxlength="10" name="phoneNumber">
+                                <mat-error style="font-size: small;" *ngIf="signupForm.get('phone')?.hasError('')">
+                                    Provide valid Phone Number
+                                </mat-error>
+                            </mat-form-field>
+                        </div>
+                        <div class="t-c m-t-5">
+                            <mat-form-field appearance="outline" fxFlex="80" fxFlex.xs="90">
+                                <input formControlName="password" matInput placeholder="Password"
+                                    [type]="hide ? 'password' : 'text'" required>
+                                <mat-error style="font-size: small;"
+                                    *ngIf="signupForm.get('password')?.hasError('minlength')">Please create password
+                                </mat-error>
+                                <button mat-icon-button matSuffix (click)="hide = !hide"
+                                    [attr.aria-label]="'Hide Password'" [attr.aria-pressed]="hide">
+                                    <mat-icon>{{hide ? 'visibility_off':'visibility'}}</mat-icon>
+                                </button>
+                            </mat-form-field>
+                        </div>
+                        <div class="t-c m-t-5">
+                            <mat-form-field appearance="outline" fxFlex="80" fxFlex.xs="90">
+                                <input formControlName="confirmpassword" matInput placeholder="Confirm Password"
+                                    name="confirmPassword" [type]="hide ? 'password' : 'text'">
+                                <mat-error style="font-size: small;"
+                                    *ngIf="signupForm.get('confirmpassword')?.hasError('minlength')">Please retype
+                                    password
+                                </mat-error>
+                                <button mat-icon-button matSuffix (click)="hide = !hide"
+                                    [attr.aria-label]="'Hide Password'" [attr.aria-pressed]="hide">
+                                    <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                                </button>
+                            </mat-form-field>
+                        </div>
+                        <div class="t-c m-t-5" *ngIf="isShowError">
+                            <div class="error-con" fxFlex="80" fxFlex.xs="90" fxLayout="row wrap">
+                                <h1 class="error-desc" fxFlex="50">
+                                    <img src="../../../../assets/images/error-info.svg" class="green-check-circle"
+                                        *ngIf="!(!isPassword?.minlength && !isPassword?.required)">
+                                    <img src="../../../../assets/images/green-check-circle.svg" class="green-check-circle"
+                                        *ngIf="(!isPassword?.minlength && !isPassword?.required)">
+                                    <span class="validaion-error"> 6 characters (min)</span>
+                                </h1>
+                                <h1 class="error-desc" fxFlex="50">
+                                    <img src="../../../../assets/images/error-info.svg" class="green-check-circle"
+                                        *ngIf="!(!isPassword?.upperCase && !isPassword?.required)">
+                                    <img src="../../../../assets/images/green-check-circle.svg" class="green-check-circle"
+                                        *ngIf="(!isPassword?.upperCase && !isPassword?.required)">
+                                    <span class="validaion-error"> One uppercase character</span>
+                                </h1>
+                                <h1 class="error-desc" fxFlex="50">
+                                    <img src="../../../../assets/images/error-info.svg" class="green-check-circle"
+                                        *ngIf="!(!isPassword?.specialChar && !isPassword?.required)">
+                                    <img src="../../../../assets/images/green-check-circle.svg" class="green-check-circle"
+                                        *ngIf="(!isPassword?.specialChar && !isPassword?.required)">
+                                    <span class="validaion-error"> One special character</span>
+                                </h1>
+                                <h1 class="error-desc" fxFlex="50">
+                                    <img src="../../../../assets/images/error-info.svg" class="green-check-circle"
+                                        *ngIf="!(!isPassword?.oneNumber && !isPassword?.required)">
+                                    <img src="../../../../assets/images/green-check-circle.svg" class="green-check-circle"
+                                        *ngIf="(!isPassword?.oneNumber && !isPassword?.required)">
+                                    <span class="validaion-error"> One number</span>
+                                </h1>
+                                <h1 class="error-desc" fxFlex="50">
+                                    <img src="../../../../assets/images/error-info.svg" class="green-check-circle"
+                                        *ngIf="!(!isConfirmPassword?.mismatch && !isPassword?.required && !isConfirmPassword?.required)">
+                                    <img src="../../../../assets/images/green-check-circle.svg" class="green-check-circle"
+                                        *ngIf="(!isConfirmPassword?.mismatch && !isPassword?.required && !isConfirmPassword?.required)">
+                                    <span class="validaion-error"
+                                        *ngIf="(!isConfirmPassword?.mismatch && !isPassword?.required && !isConfirmPassword?.required)">
+                                        Password
+                                        Matches</span>
+                                    <span class="validaion-error"
+                                        *ngIf="!(!isConfirmPassword?.mismatch && !isPassword?.required && !isConfirmPassword?.required)">
+                                        Password
+                                        does not match</span>
+                                </h1>
+                            </div>
+                        </div>
+                        <div class="t-c">
+                            <mat-checkbox class="text-wrap" fxFlex="80" fxFlex.xs="90"
+                                formControlName="termsAndConditions"
+                                [ngClass]="{'invalid':!signupForm.get('termsAndConditions')?.value && isSubmittedSignUp}">
+                                I agree to C-Out's
+                                <a class="anchor" (click)="openTermAndConditions()">Terms, Privacy Policy,</a> and
+                                <a class="anchor" (click)="openEsign()"> E-Sign Consent</a>
+                            </mat-checkbox>
+                        </div>
+                        <div class="m-t-20 t-c">
+                            <button mat-raised-button class="m-t-10 log-btn " fxFlex="80" fxFlex.xs="90" color="primary"
+                                (click)="signUp()">
+                                SIGN UP
+                            </button>
+                        </div>
+                        <div class="m-t-30 ">
+                            <h5 class="dont-accont-desc">Already have an account <span class="anchor"
+                                    (click)="openSignIn()"> Sign In </span>
+                            </h5>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </mat-tab>
+    </mat-tab-group>
+</div>

@@ -1,0 +1,43 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "logIn": [
+    {
+      "name": "Valla",
+      "email": "valla@gmail.com",
+      "phone": "1234567890",
+      "password": "1234567890",
+      "confirmpassword": "1234567890",
+      "termsAndConditions": true,
+      "sendNewsletterFl": true,
+      "sendMarkettingEmailFl": true,
+      "id": 1
+    },
+    {
+      "name": "Test",
+      "email": "test@gmail.com",
+      "phone": "7890563421",
+      "password": "Test@123",
+      "confirmpassword": "Test@123",
+      "termsAndConditions": true,
+      "sendNewsletterFl": true,
+      "sendMarkettingEmailFl": true,
+      "id": 2
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}

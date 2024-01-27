@@ -1,0 +1,60 @@
+<div class="service-content">
+
+    <section class="latest-service p-0" style="padding: 0px;">
+        <div style="padding: 10px 2%;">
+            <div fxLayout="row" fxLayoutAlign="space-between center">
+                <h3 class="desc-header">Latest Services</h3>
+            </div>
+            <swiper [config]="serviceConfig">
+                <ng-template swiperSlide *ngFor="let item of serviceImages">
+                    <div fxLayout="Row"></div>
+                    <a href="/"><img class="image" [src]="item.image"></a>
+                </ng-template>
+            </swiper>
+        </div>
+    </section>
+
+    <section class="popular-content p-t-20 p-b-20">
+        <div class="service-head p-t-30" fxLayoutAlign="center">
+            <span>Our Popular Services</span>
+        </div>
+        <div class="p-b-20 p-t-20" style="padding: 30px 3%;" fxLayout="row" fxLayoutGap="20px">
+            <mat-card class="service-card" fxLayout="column" fxLayoutGap="20px">
+                <img class="service-img" src="/assets/images/Service/service-image-1.png">
+                <a href="#"><span class="service-title">Responsive Website Design</span></a>
+                <h5 class="service-subtitle"><span>We design and develop high-performing platforms that make all the
+                        difference.
+                        From website design to website development, We make it easy, secure and robust.</span></h5>
+            </mat-card>
+            <mat-card class="service-card" fxLayout="column" fxLayoutGap="20px">
+                <img class="service-img" src="/assets/images/Service/service-image-3.png">
+                <a href="#"><span class="service-title">Dynamic Website Design</span></a>
+                <h5 class="service-subtitle"><span>We design and develop high-performing platforms that make all the
+                        difference.
+                        From website design to website development, We make it easy, secure and robust.</span></h5>
+            </mat-card>
+            <mat-card class="service-card" fxLayout="column" fxLayoutGap="20px">
+                <img class="service-img" src="/assets/images/Service/service-image-2.png">
+                <a href="#"><span class="service-title">Corporate Website Design</span></a>
+                <h5 class="service-subtitle"><span>We design and develop high-performing platforms that make all the
+                        difference.
+                        From website design to website development, We make it easy, secure and robust.</span></h5>
+            </mat-card>
+        </div>
+    </section>
+
+    <section class="latest-service p-0" style="padding: 0px;">
+        <div style="padding: 10px 2%;">
+            <div fxLayout="row" fxLayoutAlign="space-between center">
+                <h3 class="desc-header">Upcoming Services</h3>
+            </div>
+            <swiper [config]="serviceConfig">
+                <ng-template swiperSlide *ngFor="let item of serviceImages">
+                    <div fxLayout="Row"></div>
+                    <a href="/"><img class="image" [src]="item.image"></a>
+                </ng-template>
+            </swiper>
+        </div>
+    </section>
+
+</div>

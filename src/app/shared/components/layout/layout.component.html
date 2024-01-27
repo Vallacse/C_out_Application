@@ -1,0 +1,90 @@
+<div class="main-container">
+    <div class="header-toolbar" *ngIf="!(isHideAllAppHeader | async)"
+        [ngClass.xs]="{'hide-header': (isHideAppHeader | async)}">
+        <mat-toolbar class="main-toolbar">
+            <mat-toolbar-row>
+                <span (click)="sideMenuToggle()" fxHide.gt-sm fxShow>
+                    <img src="/assets/images/menu.svg" class="menu" />
+                </span>
+                <span>
+                    <img src="/assets/images/New-Logo.png" class="header-logo" />
+                </span>
+                <span class="tool-desc">
+                    <h5 class="header" ngStyle.xs="margin-top: -8px;color:white;">C-Out</h5>
+                    <h5 class="sub-header" fxHide fxShow.gt-xs>Code For You</h5>
+                </span>
+                <span class="menu-list d-flex m-l-35" fxHide fxShow.gt-xs>
+                    <div class="m-l-15" routerLinkActive="selected" [routerLink]="['/home']">
+                        <span class="m-l-15 link-desc" fxShow.gt-sm fxHide> Home</span>
+                        <img src="/assets/images/yellow-line.svg" class="inactive active" />
+                    </div>
+                    <div class="m-l-15" routerLinkActive="selected" [routerLink]="['/services']">
+                        <span class="m-l-15 link-desc" fxShow.gt-sm fxHide> Carriers</span>
+                        <img src="/assets/images/yellow-line.svg" class="inactive active" />
+                    </div>
+                    <div class="m-l-15" routerLinkActive="selected" [routerLink]="['/about']">
+                        <span class="m-l-15 link-desc" fxShow.gt-sm fxHide> About</span>
+                        <img src="/assets/images/yellow-line.svg" class="inactive active" />
+                    </div>
+                </span>
+                <span class="spacer" fxHide.xs></span>
+                <span class="tool-desc" fxHide.xs fxShow.gt-md></span>
+
+                <!-- <ng-container *ngIf="userInfo?.isAuthenticated; else elseTemplate">
+                    <button style="height: 64px;" mat-icon-button [matMenuTriggerFor]="menu"
+                        *ngIf="userInfo?.isAuthenticated" fxHide.xs fxShow [title]="userInfo.fullName">
+                        <div class="user-profile-name">
+                            <p>
+                                {{firstLetter}}
+                            </p>
+                        </div>
+                    </button>
+                    <mat-menu #menu="matMenu" xPosition="before">
+                        <div class="user-name" *ngIf="userInfo?.userName">@{{userInfo.userName}}</div>
+                        <button mat-menu-item (click)="signOut()">
+                            <mat-icon>logout</mat-icon>&nbsp;&nbsp;Sign Out
+                        </button>
+                    </mat-menu> -->
+                <!-- user info -->
+                <!-- <span class="tool-desc" fxHide fxShow.gt-md>
+                    </span>
+                </ng-container> -->
+                <!-- <ng-template #elseTemplate> -->
+                <div>
+                    <button mat-raised-button class="log-in-btn" aria-label="" color="primary"
+                        (click)="openDialog(true)">
+                        Sign In
+                    </button>
+                    <button mat-raised-button class="log-in-btn btn-border" aria-label="" (click)="openDialog(false)">
+                        Sign Up
+                    </button>
+                </div>
+                <!-- </ng-template> -->
+            </mat-toolbar-row>
+        </mat-toolbar>
+        <mat-sidenav class="sidenav" #snav [mode]="'over'" [(opened)]="isSideMenu" (opened)="isopend=true"
+            (closed)="isopend=false">
+            <mat-nav-list class="sidenav-menus">
+                <a mat-list-item [ngStyle.xs]="{'width': '98%'}" [routerLink]="['/']" (click)="snav.close()">
+                    <mat-icon>home</mat-icon> &nbsp;&nbsp;Home
+                </a>
+                <a mat-list-item [ngStyle.xs]="{'width': '98%'}" [routerLink]="['/services']" (click)="snav.close()">
+                    <mat-icon>rss_feed</mat-icon> &nbsp;&nbsp;Carriers
+                </a>
+                <a mat-list-item [ngStyle.xs]="{'width': '98%'}" [routerLink]="['/about']" (click)="snav.close()">
+                    <mat-icon>message</mat-icon> &nbsp;&nbsp;About
+                </a>
+                <a mat-list-item (click)="logOut();snav.close()" [ngStyle.xs]="{'width': '98%'}">
+                    <mat-icon>logout</mat-icon>&nbsp;&nbsp;Sign Out
+                </a>
+            </mat-nav-list>
+        </mat-sidenav>
+        <mat-sidenav-container>
+            <mat-sidenav-content>
+                <div class="body-container">
+                    <router-outlet></router-outlet>
+                </div>
+            </mat-sidenav-content>
+        </mat-sidenav-container>
+    </div>
+</div>

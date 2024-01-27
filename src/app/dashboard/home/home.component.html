@@ -1,0 +1,70 @@
+<div class="home-content">
+  <h1 hidden> C-Out Private Limited
+  </h1>
+  <section class="header-swiper">
+    <swiper [config]="config">
+      <ng-template swiperSlide class="swiper-bg-1"> <span>Welcome to C-Out Private Ltd.</span>
+      </ng-template>
+      <ng-template swiperSlide class="swiper-bg-2">Start Practice, Have Fun, Grow Knowledge, Save Time.</ng-template>
+      <ng-template swiperSlide class="swiper-bg-3">There is a better way to grow...</ng-template>
+    </swiper>
+  </section>
+
+  <section class="portfolio p-t-20">
+    <div class="title p-t-20" style="padding: 10px 2%;">
+      <div class="ap-title-1" fxLayout="p-t-20" fxLayoutAlign="center">
+        <span class="portfolio-title">Portfolio</span>
+      </div>
+      <swiper [config]="portfolioConfig">
+        <ng-template swiperSlide *ngFor="let item of portfolioImages">
+          <img class="image" [src]="item.image">
+        </ng-template>
+      </swiper>
+    </div>
+  </section>
+
+  <section class="team-content">
+    <div class="app-title-1">Our Hard working <span style="color: blue; font-style: normal;">Team</span></div>
+    <div class="card-content p-t-20 " fxLayoutAlign.gt-xs="center center" fxLayout="row" fxLayout.xs="column"
+      fxLayoutGap.xs="5px" fxLayoutGap="30px">
+      <mat-card fxLayout="column">
+        <span><img class="team-img" src="/assets/images/Team/team-1.jpg"></span>
+        <span class="img-title">Vallarasu</span>
+        <span class="img-sub-title">Website Developer</span>
+      </mat-card>
+      <mat-card fxLayout="column">
+        <span><img class="team-img" src="/assets/images/Team/team-2.jpg"></span>
+        <span class="img-title">Sarah Jhonson</span>
+        <span class="img-sub-title">Product Manager</span>
+      </mat-card>
+      <mat-card fxLayout="column">
+        <span><img class="team-img" src="/assets/images/Team/team-3.jpg"></span>
+        <span class="img-title">William Anderson</span>
+        <span class="img-sub-title">CTO</span>
+      </mat-card>
+      <mat-card fxLayout="column">
+        <span><img class="team-img" src="/assets/images/Team/team-4.jpg"></span>
+        <span class="img-title">Amenda Jepson</span>
+        <span class="img-sub-title">Accountant</span>
+      </mat-card>
+    </div>
+  </section>
+
+  <section class="subscribe-content">
+    <div class="container">
+      <div class="app-title-2">Join our News Letter</div>
+      <div class="app-subtitle-2">Get Webservice, Development and more</div>
+      <div class="subscibe-input text-center">
+        <mat-form-field appearance="outline" style="width: 70%;padding-left: 30px;">
+          <input matInput placeholder="Enter your email">
+          <button mat-raised-button style="margin-bottom: 18px;" color="primary" matSuffix>Subscribe Now</button>
+        </mat-form-field>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <app-footer></app-footer>
+  </section>
+
+</div>
